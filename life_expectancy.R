@@ -4,28 +4,23 @@ library(gapminder)
 asia <- gapminder %>% 
   filter(continent == "Asia") %>% 
   group_by(year) %>%
-  summarize(mean_exp = mean(lifeExp))
-colnames(asia) <- c("year", "asiaLife")
+  summarize(asiaLife = mean(lifeExp))
 americas <- gapminder %>% 
   filter(continent == "Americas") %>% 
   group_by(year) %>%
-  summarize(mean_exp = mean(lifeExp))
-colnames(americas) <- c("year", "americasLife")
+  summarize(americasLife = mean(lifeExp))
 europe <- gapminder %>% 
   filter(continent == "Europe") %>% 
   group_by(year) %>%
-  summarize(mean_exp = mean(lifeExp))
-colnames(europe) <- c("year", "europeLife")
+  summarize(europeLife = mean(lifeExp))
 africa <- gapminder %>% 
   filter(continent == "Africa") %>% 
   group_by(year) %>%
-  summarize(mean_exp = mean(lifeExp))
-colnames(africa) <- c("year", "africaLife")
+  summarize(africaLife = mean(lifeExp))
 oceania <- gapminder %>% 
   filter(continent == "Oceania") %>% 
   group_by(year) %>%
-  summarize(mean_exp = mean(lifeExp))
-colnames(oceania) <- c("year", "oceaniaLife")
+  summarize(oceaniaLife = mean(lifeExp))
 #merge datasets to create a dataset with mean life expectancy from each continent
 total <- merge(asia,americas, by = "year")
 total <- merge(total,europe, by = "year")
